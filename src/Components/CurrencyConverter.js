@@ -51,10 +51,17 @@ class CurrencyConverter extends Component {
                     {theMap}
                 </select>
                 <div>
-                    <button className='minus' onClick={this.handleAmountDecrease}>-</button>
                     <button className='add' onClick={this.handleAmountIncrease}>+</button>
+                    <button className='minus' onClick={this.handleAmountDecrease}>-</button>
                 </div>
-                 {this.props.render(currencyData[this.state.selectedCurrency], this.state.amount)}
+				{this.state.currencyChosen ? (
+					this.props.render(
+						currencyData[this.state.selectedCurrency],
+						this.state.amount
+					)
+				) : (
+					<p>Please Select Currency</p>
+				)}
             </div>
         )
     }
